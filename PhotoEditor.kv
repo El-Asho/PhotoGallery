@@ -1,43 +1,47 @@
+Display
 
-<PhotoLibrary>
-   BoxLayout:
-      orientation: "vertical"
-      BoxLayout:
-         orientation: "horizontal"
-         BoxLayout:
-            orientation: "vertical"
+<Display>:
+    BoxLayout:
+        padding: "15dp"
+        orientation: "vertical"
+        GridLayout:
+            rows: 4
             TextInput:
-               id: images
-               hint_text: "Enter Image"
-               size_hint: 1,.5
+                id: name
+                text: "Enter image name (and the format)"
+                size_hint: .5, 3
             Button:
-               text: "Black and White"
-               size_hint: 1,.5
+                text: "Load Image"
+                size_hint: .5, 3
+                on_release: pic.source = name.text
             Button:
-               text: "Line Drawing"
-               size_hint: 1,.5
+                text: "Black and White"
+                size_hint: .5, 3
+                on_release: root.oldtimey()
             Button:
-               text: "Sepia"
-               size_hint: 1,.5
-               on_release: root.sepia("text.images")
-         BoxLayout:
-            orientation: "vertical"
+                text: "Inverse"
+                size_hint: .5, 3
+                on_release: root.inverse()
             Button:
-               text: "Load Image"
-               size_hint: 1,.5
-            Button
-               text: "Inverse"
-               size_hint: 1,.5
-               on_release: root.invert(text.images)
+                text: "Line Drawing"
+                size_hint: .5, 3
+                on_release: root.linedrawing()
             Button:
-               text: "Pointillism"
-               size_hint: 1,.5
+                text: "Pointilism"
+                size_hint: .5, 3
+                on_release: root.pointilism()
             Button:
-               text: "Pixelate"
-               size_hint: 1,.5
-      Label:
-         id: image
-         size_hint: 2,2
+                text: "Sepia"
+                size_hint: .5, 3
+                on_release: root.sepia()
+            Button:
+                text: "Pixelate (BROKEN)"
+                size_hint: .5, 3
+                #on_release: root.pixelate()
+        Image:
+            id: pic
+            source: ""
+            size_hint: 1, 5
 
 
 
